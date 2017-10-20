@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -73,8 +73,43 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const hello = 'Hello!';
-console.log(hello);
+const fs = __webpack_require__(1);
+class configManagement {
+    constructor(option) {
+        this.setting = option;
+    }
+    getConfigs() {
+        fs.readdir(this.setting.extsDir, (err, files) => {
+            files.forEach(file => {
+                console.log(file);
+            });
+        });
+    }
+}
+exports.configManagement = configManagement;
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const configManagement_1 = __webpack_require__(0);
+const extsDir = '/config/ext';
+let configsOptions = {
+    extsDir: '/config/ext',
+    user: 'human'
+};
+let cm = new configManagement_1.configManagement(configsOptions);
+cm.getConfigs();
 
 
 /***/ })

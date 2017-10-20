@@ -16,6 +16,9 @@ const paths = {
 };
 
 const common = {
+  node: {
+    fs: "empty"
+  },
   // 要做編譯的檔案， key: value 對應的是匯出檔名: 原檔案路徑(可不加副檔名, 方便ts, js轉換)
   entry: {
     app: "./js/app",
